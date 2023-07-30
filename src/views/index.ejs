@@ -1,0 +1,93 @@
+<%include partials/_header%>
+
+
+
+   	  	 
+
+   	  	 
+  <div class="container mt-5">
+
+    <div class="row mt-5">
+      <!--FORM-->
+      <div class="col-md-12 mt-5">
+        <div class="card">
+          <div class="card-body">
+            <form action="/add" method="post">
+              <div class="form-group">
+                <input class="form-control" type="text" name="name" placeholder="name">
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="text" name="title" placeholder="title">
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="text" name="image" placeholder="image">
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="text" name="imagei" placeholder="imagei">
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="text" name="imageii" placeholder="imageii">
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="text" name="description" placeholder="description">
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="number" name="price" placeholder="price">
+              </div><div class="form-group">
+                <input class="form-control" type="number" name="amount" placeholder="amount">
+              </div>
+  
+              <button class="btn btn-primary" type="submit">
+                Add
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <!-- LIST -->
+      <div class="col-md-12">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>N°</th>
+              <th>Nombre</th>
+              <th>Comentario</th>
+              <th>Operations</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(var i = 0; i < tasks.length; i++) { %> 
+              <tr>
+                <td></td>
+                <td><strong><%= tasks[i].title %></strong></td>
+                <td><%= tasks[i].image %></td>
+                <td><%= tasks[i].price %></td>
+                <td><%= tasks[i].amount %></td>
+  
+  
+                <td>
+                  
+                  <a href="/delete/<%= tasks.id %>" class="btn btn-danger">
+                    Delete
+                  </a>
+                  <a href="/edit/<%= tasks.id %>" class="btn btn-info">
+                    Edit
+                  </a>
+                </td>
+              </tr>
+              <% } %>            
+            </tbody>
+        </table>
+  
+      </div>
+    </div>
+  
+  </div>
+
+
+
+<%include partials/_footer%>
+
+
+
